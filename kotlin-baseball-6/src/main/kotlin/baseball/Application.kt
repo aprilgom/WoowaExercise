@@ -19,7 +19,19 @@ const val SUCCESS_MSG = "${NUMBER_LENGTH}개의 숫자를 모두 맞히셨습니
 const val ASK_CONTINUE_MSG = "게임을 새로 시작하려면 $CONTINUE_NUM, 종료하려면 ${EXIT_NUM}를 입력하세요."
 
 fun main() {
-    TODO("프로그램 구현")
+    println(START_MSG)
+    do{
+        val secretNumber = createRandomNumber()
+        do{
+            print(SUGGEST_MSG)
+            val suggestedNumber = getSuggestionNumber()
+            val result = compareNumber(suggestedNumber, secretNumber)
+            println(result)
+        }while (result.strike != NUMBER_LENGTH)
+        println(SUCCESS_MSG)
+        println(ASK_CONTINUE_MSG)
+        //TODO: input if continue
+    } while(//todo: if ${continue num} continue else quit)
 }
 
 fun createRandomNumber(): List<Int> {
