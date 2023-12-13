@@ -4,6 +4,7 @@ import camp.nextstep.edu.missionutils.Randoms
 
 const val NUMBER_LENGTH = 3
 const val NUMBER_LENGTH_EXCEED_ERR = "number_length_exceed"
+const val NUMBER_DUPLICATED_ERR = "number_duplicated"
 fun main() {
     TODO("프로그램 구현")
 }
@@ -21,13 +22,16 @@ fun createRandomNumber(): List<Int> {
 
 fun getSuggestionNumber(): List<Int> {
     val input = Console.readLine()
-    require(input.length > NUMBER_LENGTH) {
+    require(input.length == NUMBER_LENGTH) {
         NUMBER_LENGTH_EXCEED_ERR
     }
     val number = input.map {
         val num = it.digitToInt()
         require(num in 1..9)
         num
+    }
+    require(number.toSet().size == NUMBER_LENGTH) {
+        NUMBER_DUPLICATED_ERR
     }
     return number
 }
