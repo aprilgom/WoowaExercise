@@ -7,6 +7,17 @@ const val NUMBER_MAX = 9
 const val NUMBER_LENGTH = 3
 const val NUMBER_LENGTH_EXCEED_ERR = "number_length_exceed"
 const val NUMBER_DUPLICATED_ERR = "number_duplicated"
+const val CONTINUE_NUM = 1
+const val EXIT_NUM = 2
+
+const val START_MSG = "숫자 야구 게임을 시작합니다."
+const val SUGGEST_MSG = "숫자를 입력해주세요 : "
+const val BALL = "볼"
+const val STRIKE = "스트라이크"
+const val NOTHING = "낫싱"
+const val SUCCESS_MSG = "${NUMBER_LENGTH}개의 숫자를 모두 맞히셨습니다! 게임 종료"
+const val ASK_CONTINUE_MSG = "게임을 새로 시작하려면 $CONTINUE_NUM, 종료하려면 ${EXIT_NUM}를 입력하세요."
+
 fun main() {
     TODO("프로그램 구현")
 }
