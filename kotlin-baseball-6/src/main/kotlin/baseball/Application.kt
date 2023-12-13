@@ -51,7 +51,20 @@ fun getSuggestionNumber(): List<Int> {
 data class Result(
     val strike: Int,
     val ball: Int,
-)
+) {
+    override fun toString(): String {
+        if(strike == 0 && ball == 0) {
+            return NOTHING
+        }
+        if(ball == 0) {
+            return "$strike$STRIKE"
+        }
+        if(strike == 0) {
+            return "$ball$BALL"
+        }
+        return "$ball$BALL $strike$STRIKE"
+    }
+}
 
 fun compareNumber(suggestedNumber: List<Int>, secretNumber: List<Int>): Result {
     val strike = suggestedNumber.zip(secretNumber).count { (a, b) -> a == b }
