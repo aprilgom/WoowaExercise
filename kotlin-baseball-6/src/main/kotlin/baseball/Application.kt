@@ -1,7 +1,6 @@
 package baseball
 import camp.nextstep.edu.missionutils.Console
 import camp.nextstep.edu.missionutils.Randoms
-import java.lang.Exception
 
 const val NUMBER_LENGTH = 3
 const val NUMBER_LENGTH_EXCEED_ERR = "number_length_exceed"
