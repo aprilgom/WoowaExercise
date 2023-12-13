@@ -35,3 +35,13 @@ fun getSuggestionNumber(): List<Int> {
     }
     return number
 }
+data class Result(
+    val strike: Int,
+    val ball: Int,
+)
+
+fun compareNumber(suggestedNumber: List<Int>, secretNumber: List<Int>): Result {
+    val strike = suggestedNumber.zip(secretNumber).count { (a, b) -> a == b }
+    val ball = suggestedNumber.toSet().intersect(secretNumber.toSet()).size
+    return Result(strike, ball)
+}
