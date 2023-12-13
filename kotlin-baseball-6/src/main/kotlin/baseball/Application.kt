@@ -2,6 +2,8 @@ package baseball
 import camp.nextstep.edu.missionutils.Console
 import camp.nextstep.edu.missionutils.Randoms
 
+const val NUMBER_MIN = 1
+const val NUMBER_MAX = 9
 const val NUMBER_LENGTH = 3
 const val NUMBER_LENGTH_EXCEED_ERR = "number_length_exceed"
 const val NUMBER_DUPLICATED_ERR = "number_duplicated"
@@ -11,8 +13,8 @@ fun main() {
 
 fun createRandomNumber(): List<Int> {
     val computer = mutableListOf<Int>()
-    while (computer.size < 3) {
-        val randomNumber = Randoms.pickNumberInRange(1, 9)
+    while (computer.size < NUMBER_LENGTH) {
+        val randomNumber = Randoms.pickNumberInRange(NUMBER_MIN, NUMBER_MAX)
         if (!computer.contains(randomNumber)) {
             computer.add(randomNumber)
         }
@@ -27,7 +29,7 @@ fun getSuggestionNumber(): List<Int> {
     }
     val number = input.map {
         val num = it.digitToInt()
-        require(num in 1..9)
+        require(num in NUMBER_MIN..NUMBER_MAX)
         num
     }
     require(number.toSet().size == NUMBER_LENGTH) {
