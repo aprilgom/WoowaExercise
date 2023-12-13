@@ -20,18 +20,18 @@ const val ASK_CONTINUE_MSG = "게임을 새로 시작하려면 $CONTINUE_NUM, �
 
 fun main() {
     println(START_MSG)
-    do{
+    do {
         val secretNumber = createRandomNumber()
-        do{
+        do {
             print(SUGGEST_MSG)
             val suggestedNumber = getSuggestionNumber()
             val result = compareNumber(suggestedNumber, secretNumber)
             println(result)
-        }while (result.strike != NUMBER_LENGTH)
+        } while (result.strike != NUMBER_LENGTH)
         println(SUCCESS_MSG)
         println(ASK_CONTINUE_MSG)
-        //TODO: input if continue
-    } while(//todo: if ${continue num} continue else quit)
+        val continueNum = getIfContinue()
+    } while (continueNum == CONTINUE_NUM)
 }
 
 fun createRandomNumber(): List<Int> {
@@ -58,6 +58,13 @@ fun getSuggestionNumber(): List<Int> {
     require(number.toSet().size == NUMBER_LENGTH) {
         NUMBER_DUPLICATED_ERR
     }
+    return number
+}
+fun getIfContinue(): Int {
+    val input = Console.readLine()
+    require(input.length == 1)
+    val number = input.toInt()
+    require(number == CONTINUE_NUM || number == EXIT_NUM)
     return number
 }
 data class Result(
