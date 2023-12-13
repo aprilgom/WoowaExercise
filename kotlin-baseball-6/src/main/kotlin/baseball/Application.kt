@@ -87,6 +87,6 @@ data class Result(
 
 fun compareNumber(suggestedNumber: List<Int>, secretNumber: List<Int>): Result {
     val strike = suggestedNumber.zip(secretNumber).count { (a, b) -> a == b }
-    val ball = suggestedNumber.toSet().intersect(secretNumber.toSet()).size
+    val ball = suggestedNumber.toSet().intersect(secretNumber.toSet()).size - strike
     return Result(strike, ball)
 }
