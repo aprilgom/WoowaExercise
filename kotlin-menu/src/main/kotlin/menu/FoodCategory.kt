@@ -9,12 +9,14 @@ enum class FoodCategory(val string: String) {
     ASIAN("아시안"),
     WESTERN("양식"),
     ;
-    fun getByIndex(index: Int): FoodCategory {
-        require(index in 1..5)
-        return enumValues<FoodCategory>()[index + 1]
-    }
-    fun pickRandom(): FoodCategory {
-        val random = Randoms.pickNumberInRange(1, 5)
-        return getByIndex(random)
+    companion object {
+        fun getByIndex(index: Int): FoodCategory {
+            require(index in 1..5)
+            return enumValues<FoodCategory>()[index + 1]
+        }
+        fun pickRandom(): FoodCategory {
+            val random = Randoms.pickNumberInRange(1, 5)
+            return getByIndex(random)
+        }
     }
 }
