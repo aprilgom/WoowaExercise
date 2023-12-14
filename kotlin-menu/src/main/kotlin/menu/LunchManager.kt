@@ -22,7 +22,7 @@ class LunchManager(guests: List<Guest>) {
     }
     private fun setMenus(guests: List<Guest>): Map<Guest, List<String>> {
         val guestMenus = mutableMapOf<Guest, List<String>>()
-        for(guest in guests) {
+        for (guest in guests) {
             val menus = recommendWeekMenus(guest)
             guestMenus[guest] = menus
         }
